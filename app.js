@@ -1,43 +1,56 @@
 var dataset = [
     { 
-        category: "Registration Fee",
+        name: "Registration Fee",
         cost: 34,
-        percentage: 34 
+        percentage: 34
     },
         { 
-        category: "Meals",
+        name: "Meals",
         cost: 20,
-        percentage: 20 
+        percentage: 20
     },
         { 
-        category: "Lodging",
+        name: "Lodging",
         cost: 17,
-        percentage: 17 
+        percentage: 17
     },
         { 
-        category: "Tolls",
+        name: "Tolls",
         cost: 14,
-        percentage: 14 
+        percentage: 14
     },
         { 
-        category: "Transportation",
+        name: "Transportation",
         cost: 9,
-        percentage: 9 
+        percentage: 9
     },
         { 
-        category: "Other",
+        name: "Other",
         cost: 6,
-        percentage: 6 
+        percentage: 6
     }
-]
+];
 
+var colors = ["#E9C238", "#5C90CD", "#23D3D3", "#ED8F35", "#DC7247", "#A5E069"];
+
+function addColorsToDataset (dataset, colors) {
+    if (colors.length < dataset.length) {
+        console.error("Not enough colors specified.");
+        return; 
+    }
+    for (var i = 0; i < dataset.length; i++){
+        dataset[i].color = colors[i];
+    }
+}
+
+addColorsToDataset(dataset, colors);
 
 var width = 300,
-    height = 400,
+    height = 300,
     radius = Math.min(width, height) / 2;
 
 var color = d3.scale.ordinal()
-    .range(["#E9C238", "#5C90CD", "#23D3D3", "#ED8F35", "#DC7247", "#A5E069"])
+    .range(colors)
     .domain(d3.range(0, 6));
 
 var pie = d3.layout.pie()
@@ -54,7 +67,7 @@ var tip = d3.tip()
     .html(function(d) {
         return d.data.percentage + 
             "%<span class='tooltip-category'> - " + 
-            d.data.category + 
+            d.data.name + 
             "</span>"; 
     });
 
@@ -84,7 +97,10 @@ donutChart.controller("donutChartController", function ($scope) {
 
 donutChart.directive("donutChartLegendItem", function () {
     return {
-        template: "Hello!",
-        restrict: "E"
+        template: "<div class='legend-circle' style='background-color: {{ legendItem.color }}'></div><span class='legend-item-name'>{{ legendItem.name }}</span>",
+        restrict: "E",
+        scope: {
+            legendItem: "="
+        }
     };
 });

@@ -1,34 +1,52 @@
+body {
+    font-family: "Tahoma", Geneva, sans-serif;
+}
+
 .donut-chart {
     display: inline-block;
+    vertical-align: middle;
 }
 
 .donut-chart-legend {
     display: inline-block;
+    vertical-align: middle;
+}
+
+.legend-circle {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+}
+
+.legend-item-name {
+    font-size: 12px;
 }
 
 .d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 8px 12px 8px 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #FFFFFF;
-  border-radius: 2px;
-  font-size: 10px;
-  font-family: "Tahoma", Geneva, sans-serif;
-  font-weight: 100;
+    line-height: 1;
+    font-weight: bold;
+    padding: 8px 12px 8px 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #FFFFFF;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 100;
 }
 
 /* Creates a small triangle extender for the tooltip */
 .d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
 }
 
 .tooltip-category {

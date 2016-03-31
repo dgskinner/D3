@@ -11,8 +11,10 @@
         <div class="donut-chart">
         </div>
         <div class="donut-chart-legend" ng-app="donutChart" ng-controller="donutChartController">
-            <donut-chart-legend-item ng-repeat="item in dataset">
-            </donut-chart-legend-item>
+            <div ng-repeat="item in dataset">
+                <donut-chart-legend-item legend-item="item">
+                </donut-chart-legend-item>
+            </div>
         </div>
         <!-- load this script down here so d3 can find element to append -->
         <script type="text/javascript" src="app.js"></script>
