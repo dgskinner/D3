@@ -68,7 +68,7 @@ var tip = d3.tip()
         return d.data.percentage + 
             "%<span class='tooltip-category'> - " + 
             d.data.name + 
-            "</span>"; 
+            "</span><br>"; 
     });
 
 var svg = d3.select(".donut-chart").append("svg")
