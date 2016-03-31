@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="https://code.angularjs.org/1.4.9/angular.min.js"></script>
+        <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+        <!-- for d3 tooltips -->
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    </head>
+    <body>
+        <div class="donut-chart">
+        </div>
+        <div class="donut-chart-legend" ng-app="donutChart" ng-controller="donutChartController">
+            <donut-chart-legend-item ng-repeat="item in dataset">
+            </donut-chart-legend-item>
+        </div>
+        <!-- load this script down here so d3 can find element to append -->
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>
