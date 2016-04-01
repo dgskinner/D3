@@ -8,8 +8,9 @@
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     </head>
     <body>
-        <div class="donut-chart">
-        </div>
+        <h3 class="chart-title">COST TYPE BREAKDOWN</h3>
+        <h4 class="chart-subtitle">YTD Total Spending Information</h4>
+        <div class="donut-chart"></div>
         <div class="donut-chart-legend" ng-app="donutChart" ng-controller="donutChartController">
             <div ng-repeat="item in dataset">
                 <donut-chart-legend-item legend-item="item">

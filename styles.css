@@ -1,5 +1,20 @@
 body {
     font-family: "Tahoma", Geneva, sans-serif;
+    padding: 0px 20px 0px 20px;
+    color: #404040;
+}
+
+.chart-title {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.chart-subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    color: #808080;
+    margin-top: 5px;
 }
 
 .donut-chart {
