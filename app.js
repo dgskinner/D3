@@ -1,37 +1,41 @@
 var dataset = [
     { 
         name: "Registration Fee",
-        cost: 34,
-        percentage: 34
+        cost: 341
     },
         { 
         name: "Meals",
-        cost: 20,
-        percentage: 20
+        cost: 204
     },
         { 
         name: "Lodging",
-        cost: 17,
-        percentage: 17
+        cost: 171
     },
         { 
         name: "Tolls",
-        cost: 14,
-        percentage: 14
+        cost: 123
     },
         { 
         name: "Transportation",
-        cost: 9,
-        percentage: 9
+        cost: 109
     },
         { 
         name: "Other",
-        cost: 6,
-        percentage: 6
+        cost: 78
     }
 ];
 
 var colors = ["#E9C238", "#5C90CD", "#23D3D3", "#ED8F35", "#DC7247", "#A5E069"];
+
+function addPercentagesToDataset (dataset) {
+    var totalCost = 0;
+    dataset.forEach(function (item) {
+        totalCost += item.cost;
+    });
+    dataset.forEach(function (item) {
+        item.percentage = Math.round(100 * item.cost / totalCost);
+    });
+}
 
 function addColorsToDataset (dataset, colors) {
     if (colors.length < dataset.length) {
@@ -43,11 +47,13 @@ function addColorsToDataset (dataset, colors) {
     }
 }
 
+addPercentagesToDataset(dataset);
 addColorsToDataset(dataset, colors);
 
-var width = 300,
-    height = 300,
-    radius = Math.min(width, height) / 2;
+var width = 250,
+    height = 250,
+    innerRadius = 50,
+    outerRadius = 110;
 
 var color = d3.scale.ordinal()
     .range(colors)
@@ -58,8 +64,8 @@ var pie = d3.layout.pie()
     .sort(null);
 
 var arc = d3.svg.arc()
-    .innerRadius(radius - 100)
-    .outerRadius(radius - 50);
+    .innerRadius(innerRadius)
+    .outerRadius(outerRadius);
 
 var tip = d3.tip()
     .attr('class', 'd3-tip')
